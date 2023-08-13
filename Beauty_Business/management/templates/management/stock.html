@@ -1,0 +1,69 @@
+{% extends 'management/base.html' %} {% block content %}
+<h1>Stock de Productos</h1>
+<!-- <div style="margin: 0 auto">
+  {% if stock_available %}
+  <table>
+    <tr>
+      <th>ID prod.</th>
+      <th>Nombre del producto</th>
+      <th>U. disponibles</th>
+    </tr>
+    {% for available in stock_available %}
+    <tr>
+      <td>{{ available.product_id_id }}</td>
+      <td>{{ available.nombre }}</td>
+      <td>{{ available.total }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% endif %}
+</div>
+
+<br /><br /><br /> -->
+
+<section class="intro">
+  <div class="bg-image h-100">
+    <div class="mask d-flex align-items-center h-100">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-9">
+            <div class="card">
+              <div class="card-body p-0">
+                <div
+                  class="table-responsive table-scroll"
+                  data-mdb-perfect-scrollbar="true"
+                  style="position: relative"
+                >
+                  {% if stock_available %}
+                  <table class="table table-sm table-striped mb-0">
+                    <thead class="gradient-custom-2">
+                      <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Disponibles</th>
+                        <th scope="col">Precio</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for available in stock_available %}
+                      <tr>
+                        <td>{{ available.product_id_id }}</td>
+                        <td>{{ available.nombre }}</td>
+                        <td>{{ available.total }}</td>
+                        <td>{{ available.precio }}</td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

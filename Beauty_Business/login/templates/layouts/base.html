@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Beauty Bussiness</title>
+    {% load static %}
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <!-- Load an icon library -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- CSS -->
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- <i class="fas fa-bars"></i> -->
+        <a class="navbar-brand" href="/signin">
+          <img
+            src="{% static 'img/logo.webp' %}"
+            alt=""
+            width="50"
+            height="40"
+          />
+          Beauty Bussiness
+        </a>
+
+        <div class="navbar-collapse collapse" id="navbarNav">
+          <ul class="nav navbar-nav ms-auto">
+            {% if user.is_authenticated == False %}
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/signin"
+                ><i class="fa fa-fw fa-home"></i>Inicio</a
+              >
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/signup"
+                ><i class="fa fa-fw fa-user"></i>Registro</a
+              >
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">Cerrar Sesion</a>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    {% block content %} {% endblock%}
+    <!-- SCRIPTS -->
+    <!-- bootstrap 5.0.2 -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <!-- sweetalert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    {% if messages %} {% for m in messages %}
+    <script>
+      Swal.fire({
+        title: document.title,
+        text: "{{m}}",
+        icon: "error",
+      });
+    </script>
+    {% endfor %} {% endif %}
+  </body>
+</html>

@@ -1,0 +1,269 @@
+* {
+  font-family: "Raleway", sans-serif;
+}
+
+body,
+.intro {
+  height: 100%;
+}
+
+h1,
+h2 {
+  text-align: center;
+}
+
+table {
+  text-align: center;
+  width: 50%;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+table td,
+table th {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+thead th {
+  color: #fff;
+}
+
+.card {
+  border-radius: 0.5rem;
+}
+
+.table-scroll {
+  border-radius: 0.5rem;
+}
+
+.table-scroll table thead th {
+  font-size: 1.25rem;
+}
+thead {
+  top: 0;
+  position: sticky;
+}
+
+/* Navbar styles */
+
+#navegador > ul {
+  list-style-type: none;
+  text-align: center;
+  background-color: #64f5ad;
+  padding: 15px;
+}
+
+#navegador li {
+  display: inline;
+  margin: 0 100px 0 0;
+}
+
+#navegador li a {
+  text-decoration: none;
+  color: black;
+}
+
+#navegador li a:hover {
+  color: rgb(179, 179, 179);
+  font-size: large;
+}
+
+#navegador li a {
+  transition: font-size 0.1s linear 0.1s;
+}
+
+/* form styles */
+
+#sales_form {
+  /* Centrar el formulario en la página */
+  margin: 50px auto;
+  width: 790px;
+  /* Esquema del formulario */
+  padding: 30px;
+  border: 1px solid #ccc;
+  border-radius: 1em;
+}
+
+#sales_form ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#sales_form li {
+  margin: 0 10px 0 0;
+  margin-top: 1em;
+  display: inline;
+}
+
+#sales_form label {
+  margin-right: 10px;
+}
+
+#sales_form select,
+input {
+  border-radius: 5px;
+  padding: 10px;
+}
+
+#sales_form button {
+  padding: 10px;
+  border-radius: 10px;
+  margin-left: 15px;
+}
+
+#price_input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Purchases section */
+#register {
+  display: flex;
+  justify-content: center;
+}
+
+#mark_register {
+  border: solid 1px black;
+  border-radius: 10px;
+  margin: auto;
+  width: 200px;
+  padding: 5px;
+}
+
+#mark_register h3 {
+  background-color: #64f5ad;
+  border-radius: 5px;
+  text-align: center;
+  padding: 5px;
+}
+
+#form_register {
+  text-align: center;
+}
+
+#form_register button,
+input {
+  padding: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.gradient-custom-2 {
+  /* fallback for old browsers */
+  background: #fccb90;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(
+    to right,
+    #ee7724,
+    #d8363a,
+    #dd3675,
+    #b44593
+  );
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+}
+
+@media (min-width: 768px) {
+  .gradient-form {
+    height: 100vh !important;
+  }
+}
+@media (min-width: 769px) {
+  .gradient-custom-2 {
+    border-top-right-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
+  }
+}
+
+.gradient-custom {
+  /* fallback for old browsers */
+  background: #fccb90;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(
+    to right,
+    #ee7724,
+    #d8363a,
+    #dd3675,
+    #b44593
+  );
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+}
+
+.card-registration .select-input.form-control[readonly]:not([disabled]) {
+  font-size: 1rem;
+  line-height: 2.15;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+}
+.card-registration .select-arrow {
+  top: 13px;
+}
+
+#hint_id_username,
+#hint_id_password1 {
+  display: none;
+}
+.helptext {
+  visibility: hidden;
+  display: none;
+}
+
+body > main > form > ul > li {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .text {
+    display: none;
+  }
+}
+@media (min-width: 992px) {
+  .text {
+    display: block;
+  }
+}
+
+.box_panel {
+  width: 100%;
+  height: 132px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+.box_icon {
+  float: left;
+  background-color: #f5f5f5;
+  border-right: 1px solid #ddd;
+  margin: 0px 15px 0px 0px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.box_icon .logos {
+  margin: 5px auto !important;
+}
+.box_body {
+  padding: 15px;
+  text-align: left;
+}
+.box_body h4 {
+  font-weight: bold;
+}
+@media (min-width: 768px) {
+  .collapse.dont-collapse-sm {
+    display: block;
+    height: auto !important;
+    visibility: visible;
+  }
+}

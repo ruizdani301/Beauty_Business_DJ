@@ -1,0 +1,39 @@
+{% extends 'layouts/base.html' %} {% block content %}
+
+<section
+  class="row justify-content-center align-items-center vh-100 gradient-form"
+>
+  <div class="col-md-4 shadow border border secondary p-4">
+    <form action="" method="POST">
+      {% csrf_token %}
+      <h4 class="mb-2 text-center">Registro de Usuario</h4>
+
+      <div class="mb-3 g-3">
+        <label for="{{ form.username.id_for_label }}" class="form-label"
+          ><h6>Usuario:</h6></label
+        >
+        {{ form.username }}
+      </div>
+
+      <div class="mb-3 g-3">
+        <label for="{{ form.passwor1.id_for_label }}" class="form-label"
+          ><h6>Contraseña:</h6></label
+        >
+        {{ form.password1 }}
+      </div>
+
+      <div class="mb-3 g-3">
+        <label for="{{ form.passwor1.id_for_label }}" class="form-label"
+          ><h6>Confirmar Contraseña:</h6></label
+        >
+        {{ form.password2 }}
+      </div>
+
+      <div class="d-grid gap-2 d-md-block">
+        <button class="btn btn-success gradient-custom-2">Registrarse</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,123 @@
+{% extends 'management/base.html' %} {% block content %}
+<!-- <h5 style="text-align: right; padding-right: 10px">Bienvenido, {{username}}</h5> -->
+<h1>Registro de ventas</h1>
+
+<!-- CONTAINER -->
+<div class="container d-flex justify-content-center">
+  <!-- FIRST ROW -->
+  <div class="row mb-3">
+    <!-- CARD -->
+    <div class="card">
+      <!-- FORM-CARDBODY -->
+      <form
+        class="card-body"
+        action="http://127.0.0.1:8000/management/sales_record/"
+        method="POST"
+      >
+        <div class="row mb-2">
+          {% csrf_token%} {% if latest_Products %}
+          <label for="product_list"><h6>Producto:</h6></label>
+          <select
+            name="product_sale"
+            id="product_list"
+            onchange="ShowSelected()"
+          >
+            {% for Product in latest_Products %}
+            <option value="{{ Product.product_id }}">
+              {{ Product.product_id }} : {{ Product.name_product }}
+            </option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <div class="row mb-2">
+          <label for=""><h6>Cantidad:</h6></label>
+          <input type="number" name="amount" min="1" required />
+        </div>
+        <div class="row">
+          <label for=""><h6>Precio:</h6></label>
+          <input type="number" name="price" min="1" required />
+        </div>
+
+        <div class="row mt-3">
+          <button class="btn btn-primary btn-block gradient-custom-2">
+            Registrar Venta
+          </button>
+        </div>
+        {% endif %}
+      </form>
+    </div>
+    <!-- <form
+      action="http://127.0.0.1:8000/management/sales_record/"
+      method="POST"
+    >
+      {% csrf_token%} {% if latest_Products %}
+      <label for="product_list">Productos: </label>
+      <select name="product_sale" id="product_list" onchange="ShowSelected()">
+        {% for Product in latest_Products %}
+        <option value="{{ Product.product_id }}">
+          {{ Product.product_id }} : {{ Product.name_product }}
+        </option>
+        {% endfor %}
+      </select>
+      <label for="">Cantidad: </label>
+      <input type="number" name="amount" min="1" required />
+
+      <label for="">Precio: </label>
+      <input type="number" name="price" min="1" required />
+      <button class="btn btn-primary btn-block gradient-custom-2">
+        Registrar Venta
+      </button>
+      {% endif %}
+    </form> -->
+  </div>
+</div>
+{% if products_available %}
+<section class="intro">
+  <div class="bg-image h-100">
+    <div class="mask d-flex align-items-center h-100">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-9">
+            <div class="card">
+              <div class="card-body p-0">
+                <div
+                  class="table-responsive table-scroll"
+                  data-mdb-perfect-scrollbar="true"
+                  style="position: relative"
+                >
+                  <table class="table table-sm table-striped mb-0">
+                    <thead class="gradient-custom-2">
+                      <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Producto</th>
+                        <th scope="col">Disponible (Unidades)</th>
+                        <th scope="col">Precio</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for available in products_available %}
+                      <tr>
+                        <td>{{ available.product_id_id }}</td>
+                        <td>{{ available.nombre }}</td>
+                        <td>{{ available.total }}</td>
+                        <td>{{ available.price }}</td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %} {% if Bandera %}
+<h3 style="text-align: center">El registro fue exitoso</h3>
+{% endif %}
+
+<br /><br /><br />
+{{error}} {% endblock %}
