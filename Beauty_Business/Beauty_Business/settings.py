@@ -88,11 +88,11 @@ WSGI_APPLICATION = 'Beauty_Business.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'bb_products',
-        'USER': 'djojoa',
+        'NAME': 'db_products',
+        'USER': 'root',
         'PASSWORD': 'root',
         'HOST': 'localhost',
-        'PORT': '5432'
+        'PORT': '5433'
     }
 }
 

@@ -108,4 +108,3 @@ class Sales(models.Model):
 
     def __str__(self):
         return "ID de la venta: {} - por {}".format(self.sale_id, self.user.username)
-

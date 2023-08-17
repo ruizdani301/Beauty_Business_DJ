@@ -1,0 +1,23 @@
+{% extends 'management/base.html' %}
+
+{% block content %}
+
+<div class="col-sm-4">
+
+  <div class="card">
+    <h3>Registrar Proveedor</h3>
+    <form action="http://127.0.0.1:8000/management/provider_register/" method="post" id="form_register">
+      {% csrf_token%}
+      <label for="">Nombre Proveedor</label>
+      <input type="text" name="name_provider" maxlength="30" required />
+      <label for="">Telefono</label>
+      <input type="text" name="phone" maxlength="30" required />
+      <label for="">Direccion</label>
+      <input type="text" name="addres" maxlength="30" required />
+      <button type="submit" class="gradient-custom-2">Registrar Proveedor</button>
+    </form>
+  </div>
+</div>
+</div>
+{% endblock %}
+

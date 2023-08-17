@@ -2,149 +2,83 @@
 <h1>Registro de Compras</h1>
 
 <div class="container d-flex">
+  <div class="card-columns gap-4">
+    <div class="row justify-content-center mb-2">
+      <div class="col-sm-4">
+        <!-- CARD PRODUCT REGISTER -->
 
-
-    <div class="card-columns gap-4 ">
-        <div class="row justify-content-center mb-2">
-
-
-            <div class="col-sm-4">
-                <!-- CARD STOCK REGISTER -->
-                <div class="card ">
-                    <div class="card-inner">
-                        <div class="header">
-                            <h3>Registrar en Stock</h3>
-                        </div>
-                        <div class="content">
-                            <p>
-                                <form
-                                  action="http://127.0.0.1:8000/management/stock_register/"
-                                  method="post"
-                                  id="form_register"
-                                >
-                                  {% csrf_token%}
-                                  <br />
-                                  <label for="">Factura</label>
-                                  <select name="factura" id="product_list" onchange="ShowSelected()">
-                                    {% for purchase in all_purchases %}
-                                    <option value="{{ purchase.purchase_id }}">
-                                      {{ purchase.factura }}
-                                    </option>
-                                    {% endfor %}
-                                  </select>
-                                  <!-- <br /><br /><br /> -->
-                                  <label for="">Producto</label>
-                                  <select name="product" id="product_list" onchange="ShowSelected()">
-                                    {% for product in all_products %}
-                                    <option value="{{ product.product_id }}">
-                                      {{ product.name_product }}
-                                    </option>
-                                    {% endfor %}
-                                  </select>
-                                  <!-- <br /><br /><br /> -->
-
-                                  <label for="">Precio de compra</label>
-                                  <input type="number" name="purchase_price" min="0" required />
-
-                                  <br /><br /><br />
-
-                                  <label for="">Precio de venta</label>
-                                  <input type="number" name="sales_price" min="0" required />
-
-                                  <br /><br /><br />
-
-                                  <label for="">Cantidad</label>
-                                  <input type="number" name="amount" min="0" required />
-
-                                  <button type="submit" class="gradient-custom-2">Registrar en Stock</button>
-                                </form>
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="col-sm-4">
-
-                <!-- CARD PRODUCT REGISTER -->
-
-                <div class="card">
-                  <h3>Registrar Producto</h3>
-                  <form
-                    action="http://127.0.0.1:8000/management/product_register/"
-                    method="post"
-                    id="form_register"
-                  >
-                    {% csrf_token%}
-                    <label for="">Nombre Producto</label>
-                    <input type="text" name="name_product" maxlength="30" required />
-                    <br /><br />
-                    <label for="">Marca</label>
-                    <select name="mark" id="product_list" onchange="ShowSelected()">
-                      {% for mark in all_marks %}
-                      <option value="{{ mark.mark_id }}">{{ mark.name_mark }}</option>
-                      {% endfor %}
-                    </select>
-                    <br /><br /><br />
-                    <label for="">Categoria</label>
-                    <select name="category" id="product_list" onchange="ShowSelected()">
-                      {% for category in all_categories %}
-                      <option value="{{ category.category_id }}">
-                        {{ category.name_category }}
-                      </option>
-                      {% endfor %}
-                    </select>
-                    <br /><br />
-                    <button type="submit" class="gradient-custom-2">Registrar Producto</button>
-                  </form>
-                </div>
-
-            </div>
-            <div class="col-sm-4">
-                <div class="card">
-                  <h3>Registrar Marca</h3>
-                  <form
-                    action="http://127.0.0.1:8000/management/mark_register/"
-                    method="post"
-                    id="form_register"
-                  >
-                    {% csrf_token%}
-                    <label for="">Nombre de la marca</label>
-                    <input type="text" name="new_mark" maxlength="30" required />
-                    <button type="submit" class="gradient-custom-2">Registrar Marca</button>
-                  </form>
-                </div>
-
-            </div>
+        <div class="card">
+          <h3>Registrar Producto</h3>
+          <form
+            action="http://127.0.0.1:8000/management/product_register/"
+            method="post"
+            id="form_register"
+          >
+            {% csrf_token%}
+            <label for="">Nombre Producto</label>
+            <input type="text" name="name_product" maxlength="30" required />
+            <br /><br />
+            <label for="">Marca</label>
+            <select name="mark" id="product_list" onchange="ShowSelected()">
+              {% for mark in all_marks %}
+              <option value="{{ mark.mark_id }}">{{ mark.name_mark }}</option>
+              {% endfor %}
+            </select>
+            <br /><br /><br />
+            <label for="">Categoria</label>
+            <select name="category" id="product_list" onchange="ShowSelected()">
+              {% for category in all_categories %}
+              <option value="{{ category.category_id }}">
+                {{ category.name_category }}
+              </option>
+              {% endfor %}
+            </select>
+            <br /><br />
+            <button type="submit" class="gradient-custom-2">
+              Registrar Producto
+            </button>
+          </form>
         </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+          <h3>Registrar Marca</h3>
+          <form
+            action="http://127.0.0.1:8000/management/mark_register/"
+            method="post"
+            id="form_register"
+          >
+            {% csrf_token%}
+            <label for="">Nombre de la marca</label>
+            <input type="text" name="new_mark" maxlength="30" required />
+            <button type="submit" class="gradient-custom-2">
+              Registrar Marca
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
 
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="card">
+          <h3>Registrar Categoria</h3>
+          <form
+            action="http://127.0.0.1:8000/management/category_register/"
+            method="post"
+            id="form_register"
+          >
+            {% csrf_token%}
+            <label for="">Nombre Categoria</label>
+            <input type="text" name="new_category" maxlength="30" required />
+            <button type="submit" class="gradient-custom-2">
+              Registrar Categoria
+            </button>
+          </form>
+        </div>
+      </div>
 
-
-        <div class="row">
-
-
-
-
-                    <div class="col-sm-4">
-
-
-                        <div class="card">
-                          <h3>Registrar Categoria</h3>
-                          <form
-                            action="http://127.0.0.1:8000/management/category_register/"
-                            method="post"
-                            id="form_register"
-                          >
-                            {% csrf_token%}
-                            <label for="">Nombre Categoria</label>
-                            <input type="text" name="new_category" maxlength="30" required />
-                            <button type="submit" class="gradient-custom-2">Registrar Categoria</button>
-                          </form>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-4">
+      <!-- <div class="col-sm-4">
 
                         <div class="card">
                           <h3>Registrar Proveedor</h3>
@@ -165,8 +99,9 @@
                         </div>
                     </div>
 
-                </div>
-        </div>
-</div>
+                </div> -->
+    </div>
+  </div>
 
-{% endblock %}
+  {% endblock %}
+</div>
